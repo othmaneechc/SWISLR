@@ -1,19 +1,28 @@
-,PDF File,Col1,Col2,Col3,Col4
-0,file.pdf,North Carolina,USA,North America,Bird
-1,s10533-021-00797-5.pdf,North Carolina,USA,NC,Nitrous
-2,Sea-Level_Rise_and_Coastal_Forest_Retreat_on_the_W.pdf,the West Coast,Florida,USA,San Bernardino
-3,s10533-016-0189-5.pdf,USA,al.,Biogeochemistry,the Albemarle Sound
-4,08-77.1.pdf,South Carolina,Louisiana,Georgia,USA
-5,s10021-018-0325-2.pdf,USA,Weston,North Carolina,N2O
-6,Journal of Geophysical Research  Biogeosciences - 2006 - Weston - Ramifications of increased salinity in tidal freshwater.pdf,al.,Georgia,the Altamaha River,N
-7,1-s2.0-S0964569117307676-main.pdf,al.,New Jersey,Smith,al. /
-8,bg-10-8171-2013.pdf,al.,USA,Bridgham,South Carolina
-9,mcz039.pdf,USA,North Carolina,North  Carolina,North Carolinaâ€™s
-10,1-s2.0-S0006320716303007-main.pdf,al.,USA,New England,Niering
-11,s11069-019-03706-0.pdf,North Carolina,Bhattachan,USA,Netherlands
-12,Journal of Applied Ecology - 2018 - Borchert - Coastal wetland adaptation to sea level rise  Quantifying potential for.pdf,al.,Florida,Louisiana,Gulf of Mexico
-13,1-s2.0-S009884722030280X-main.pdf,al.,Sorghum,Tester,Kielen
-14,s10533-014-9986-x.pdf,USA,L-1,Biogeochemistry,al.
-15,04-0211.1.pdf,al.,Maryland,Florida,Virginia
-16,s10021-021-00686-w.pdf,HUC,USA,North America,Louisiana
-17,355.Short-Term Response of Carbon Cycling to.pdf,NS,al.,NaCl,Specifi
+,PDF File,DOI,Col1,Col2,Col3,Col4,Location,County,State,,
+0,file.pdf,10.1371/journal.pone.0216540,North Carolina,USA,North America,Bird,Albemarle-Pamlico Peninsula,,North Carolina,,
+1,s10533-021-00797-5.pdf,0.1007/s10533-021-00797-5,North Carolina,USA,NC,Nitrous,Albemarle-Pamlico Peninsula,,North Carolina,,
+2,Sea-Level_Rise_and_Coastal_Forest_Retreat_on_the_W.pdf,10.1890/0012-9658,the West Coast,Florida,USA,San Bernardino,"Turtle Creek, Waccasassa Bay State Preserve",,Florida,29¡7 N,82¡47 W
+3,s10533-016-0189-5.pdf,10.1007/s10533-016-0189-5,USA,al.,Biogeochemistry,the Albemarle Sound,Albemarle Sound,,North Carolina,,
+4,08-77.1.pdf,,South Carolina,Louisiana,Georgia,USA,"Waccamaw, Savannah Rivers",,"Louisiana, South Carolina, or Georgia",,
+5,s10021-018-0325-2.pdf,10.1007/s10021-018-0325-2,USA,Weston,North Carolina,N2O,"Timberlake Observatory for Wetland Restoration, Albemarle Peninsula",,North Carolina,,
+6,Journal of Geophysical Research  Biogeosciences - 2006 - Weston - Ramifications of increased salinity in tidal freshwater.pdf,,al.,Georgia,the Altamaha River,N,the Altamaha River,,Georgia,,
+7,1-s2.0-S0964569117307676-main.pdf,10.1016/j.ocecoaman.2017.09.010,al.,New Jersey,Smith,al. /,New Jersey Delaware Bay,,"New Jersey, Delaware",,
+8,bg-10-8171-2013.pdf,10.5194/bg-10-8171-2013,al.,USA,Bridgham,South Carolina,"Brookgreen Gardens, Waccamaw River",,South Carolina,,
+9,mcz039.pdf,10.1093/aob/mcz039,USA,North Carolina,North  Carolina,North Carolinaâ€™s,AlbemarleÐPamlico Peninsula,,North Carolina,,
+10,1-s2.0-S0006320716303007-main.pdf,10.1016/j.biocon.2016.07.035,al.,USA,New England,Niering,,,Connecticut,,
+11,s11069-019-03706-0.pdf,10.1007/s11069-019-03706-0,North Carolina,Bhattachan,USA,Netherlands,Albemarle-Pamlico Peninsula,,North Carolina,,
+12,Journal of Applied Ecology - 2018 - Borchert - Coastal wetland adaptation to sea level rise  Quantifying potential for.pdf,10.1111/1365-2664.13169,al.,Florida,Louisiana,Gulf of Mexico,Gulf of Mexico coast,,"Texas, Louisiana, Mississippi, Alabama, Florida",,
+13,1-s2.0-S009884722030280X-main.pdf,10.1016/j.envexpbot.2020.104254,al.,Sorghum,Tester,Kielen,Crisfield and Cambridge ,,Maryland,"37.983436¡N, 38.5632¡N ","_76.0785¡W, 75.854527¡W"
+14,s10533-014-9986-x.pdf,10.1007/s10533-014-9986-x,USA,L-1,Biogeochemistry,al.,"Timberlake Observatory for Wetland Restoration, Albemarle Peninsula",,North Carolina,,
+15,04-0211.1.pdf,10.2112/04-0211.1,al.,Maryland,Florida,Virginia,Chesapeake Bay,Dorchester County,Maryland,,
+16,s10021-021-00686-w.pdf,10.1007/s10021-021-00686-w,HUC,USA,North America,Louisiana,North American Coastal Plain,,From Massachusetts to Northern Mexico,,
+17,355.Short-Term Response of Carbon Cycling to.pdf,10.2136/sssaj2011.0026,NS,al.,NaCl,Specifi,St JohnÕs Marsh Conservation Area ,,Michigan,27.91833¡ N,80.77389¡  W
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
