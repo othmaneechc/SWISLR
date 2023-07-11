@@ -248,7 +248,7 @@ if __name__ == "__main__":
 
     df['Affiliation'] = modified_series
 
-    df.to_csv("output.csv")
+    df.to_csv("output_files/output.csv")
 
     print("\nNow excluding useless papers...")
 
@@ -272,6 +272,6 @@ if __name__ == "__main__":
 
     # Delete rows that meet the criteria
     df = df[df.apply(should_delete_row, axis=1) == True]
-    df.to_csv('excluded.csv')
+    df.to_csv('output_files/excluded.csv')
 
     print("DONE!")
