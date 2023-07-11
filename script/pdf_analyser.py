@@ -96,9 +96,11 @@ def process_pdf_file(file):
     output_dict = most_recurrent_locations(content, 7)
     return file, list(output_dict.keys())
 
-def df_maker(path):
+def df_maker(path, filename):
     # Remove "PDF Papers (20)" from the strings in pdf_files
-    filename = [file.replace(path.split("/")[0], "") for file in filename]
+    filename = [file.replace(path.split("/")[0] + "/", "") for file in filename]
+    filename = [file.replace(".pdf", "") for file in filename]
+    filename = [file.replace(":", "/") for file in filename]
 
     # Extract the columns from list_of_lists
     col1 = [item[0] if len(item) > 0 else '' for item in list_of_lists]
@@ -111,7 +113,7 @@ def df_maker(path):
 
     # Create the dataframe
     data = {
-        'PDF File': filename,
+        'DOI': filename,
         'Col1': col1,
         'Col2': col2,
         'Col3': col3,
@@ -120,7 +122,8 @@ def df_maker(path):
         'Col6': col6,
         'Col7': col7
     }
-    df = pd.DataFrame(data)
+    return pd.DataFrame(data)
+
 
 if __name__ == "__main__":
 
@@ -156,4 +159,4 @@ if __name__ == "__main__":
 
     # Now all the lists inside list_of_lists have the same number of elements
 
-    df_maker(path).to_csv('output_files/pdf_analysis.csv')
+    df_maker(path, filename).to_csv('output_files/primary_df_analysis.csv')

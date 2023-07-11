@@ -250,28 +250,28 @@ if __name__ == "__main__":
 
     df.to_csv("output_files/output.csv")
 
-    print("\nNow excluding useless papers...")
+    # print("\nNow excluding useless papers...")
 
-    from country_list import countries_for_language
+    # from country_list import countries_for_language
 
-    # countries_for_language returns a list of tuples now, might be changed to an OrderedDict
-    countries = dict(countries_for_language('en'))
-    del countries["US"]
+    # # countries_for_language returns a list of tuples now, might be changed to an OrderedDict
+    # countries = dict(countries_for_language('en'))
+    # del countries["US"]
 
-    # List of countries
-    countries = list(countries.values())
-    countries.append("Africa")
+    # # List of countries
+    # countries = list(countries.values())
+    # countries.append("Africa")
 
-    # Columns to check
-    columns_to_check = df.columns[-4:]
+    # # Columns to check
+    # columns_to_check = df.columns[-4:]
 
-    # Check if the last four columns are empty
-    last_four_columns_empty = df.iloc[:, -4:].isnull().all(axis=1)
-    # Delete rows where the last four columns are empty
-    df = df[~last_four_columns_empty]
+    # # Check if the last four columns are empty
+    # last_four_columns_empty = df.iloc[:, -4:].isnull().all(axis=1)
+    # # Delete rows where the last four columns are empty
+    # df = df[~last_four_columns_empty]
 
-    # Delete rows that meet the criteria
-    df = df[df.apply(should_delete_row, axis=1) == True]
-    df.to_csv('output_files/excluded.csv')
+    # # Delete rows that meet the criteria
+    # df = df[df.apply(should_delete_row, axis=1) == True]
+    # df.to_csv('output_files/excluded.csv')
 
     print("DONE!")
