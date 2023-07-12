@@ -49,7 +49,7 @@ The `directory` argument allows you to specify the directory where the downloade
 
 Example: 
 
-`python script.py -f input_files/data.csv -d download_directory`
+`python scihub_api.py -f input_files/data.csv -d download_directory`
 
 ## PDF Cleaning
 
