@@ -131,7 +131,7 @@ if __name__ == "__main__":
     parser.add_argument('-f', '--folder', nargs='+', help='Folder', default="combined_data")
 
     args = parser.parse_args()
-    keywords = args.folder
+    keywords = args.folder[0]
 
     path = keywords + "/*.pdf"
     pdf_files = get_pdf_file_names(path)

@@ -1,15 +1,24 @@
+import argparse
 import concurrent.futures
 
 import pandas as pd
 from scidownl import scihub_download
 from tqdm import tqdm
 
+parser = argparse.ArgumentParser(description='Script to process keywords.')
+parser.add_argument('-f', '--file', nargs='+', help='file', default='output_files/output.csv')
+parser.add_argument('-d', '--directory', nargs='+', help='directory', default='papers')
+
+args = parser.parse_args()
+file = args.file[0]
+dir = args.directory[0]
+
+df = pd.read_csv(file)
 
 def download_papers(paper):
     name = paper.replace('/', ':')
-    scihub_download(paper, paper_type="doi", out=f"./papers/{name}.pdf")
+    scihub_download(paper, paper_type="doi", out=f"./{dir}/{name}.pdf")
 
-df = pd.read_csv('output_files/output.csv')
 source = list(df['DOI'])
 source = [doi for doi in source if pd.notna(doi)]
 
@@ -23,7 +32,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
 
     import os
 
-folder_path = "papers"  # Replace "papers" with your folder path
+folder_path = f"{dir}"  # Replace "papers" with your folder path
 
 # Get the list of files in the folder
 file_list = os.listdir(folder_path)

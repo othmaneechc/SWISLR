@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description='Script to process keywords.')
 parser.add_argument('-f', '--folder', nargs='+', help='folder', default="combined_data")
 
 args = parser.parse_args()
-combined_folder = args.folder
+combined_folder = args.folder[0]
 
 # Step 1: Get file list
 combined_files = [file for file in os.listdir(combined_folder) if file.endswith(".pdf")]

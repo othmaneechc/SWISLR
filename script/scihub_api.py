@@ -1,3 +1,4 @@
+import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from itertools import cycle
 from urllib.parse import urljoin
@@ -8,7 +9,13 @@ from bs4 import BeautifulSoup
 from lxml.html import fromstring
 from tqdm import tqdm
 
-df = pd.read_csv('output_files/output.csv')
+parser = argparse.ArgumentParser(description='Script to process keywords.')
+parser.add_argument('-f', '--file', nargs='+', help='file', default='output_files/output.csv')
+
+args = parser.parse_args()
+file = args.file
+
+df = pd.read_csv(file)
 source = list(df['DOI'])
 source = [doi for doi in source if pd.notna(doi)]
 
@@ -18,26 +25,20 @@ dois = []
 
 def test_proxies(proxies):
     working_proxies = []
+    session = requests.Session()
 
-    for proxy in tqdm(proxies):
-        ip_port = proxy.split(':')
-        ip = ip_port[0]
-        port = ip_port[1]
+    for proxy in tqdm(proxies, desc='Testing Proxies', unit='proxy'):
+        ip, port = proxy.split(':')
+        http_proxy = f'http://{ip}:{port}'
+        https_proxy = f'https://{ip}:{port}'
+        proxies = {
+            'http': http_proxy,
+            'https': https_proxy
+        }
 
         try:
-            # Set proxy in the requests library
-            proxies = {
-                'http': f'http://{ip}:{port}',
-                'https': f'http://{ip}:{port}'
-            }
-
-            # Send a test request using the proxy
-            response = requests.get('https://sci-hub.ru', proxies=proxies)
-
-            # Check if the request was successful
-            if response.status_code == 200:
-                working_proxies.append(proxy)
-
+            response = session.get('https://sci-hub.ru', proxies=proxies, timeout=5)
+            working_proxies.append(proxy)
         except requests.exceptions.RequestException:
             pass  # Proxy connection or timeout error, ignore
 
@@ -88,10 +89,11 @@ def pdf_downloader(doi):
         response = requests.get(url, proxies=proxies)
         # response = requests.get(url)
         response.raise_for_status()
+        soup = BeautifulSoup(response.content, 'html.parser')
+
     except Exception as e:
         print(f"An exception occurred: {str(e)}")
 
-    soup = BeautifulSoup(response.content, 'html.parser')
 
     try:
         citation_div = soup.find('div', {'id': 'citation'})
