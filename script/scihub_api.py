@@ -10,10 +10,10 @@ from lxml.html import fromstring
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='Script to process keywords.')
-parser.add_argument('-f', '--file', nargs='+', help='file', default='output_files/output.csv')
+parser.add_argument('-f', '--file', nargs='+', help='file', default=['output_files/output.csv'])
 
 args = parser.parse_args()
-file = args.file
+file = args.file[0]
 
 df = pd.read_csv(file)
 source = list(df['DOI'])
@@ -127,8 +127,12 @@ if __name__ == "__main__":
     proxies = get_proxies()
 
     print("\nLooking for working proxies")
-    working_proxies = test_proxies(proxies)
-    proxy_cycle = cycle(working_proxies)
+    # Test the proxies
+    working_proxies = []
+    while len(working_proxies) < 1:
+        proxies = get_proxies()
+        working_proxies = test_proxies(proxies)
+        proxy_cycle = cycle(working_proxies)
 
     with ThreadPoolExecutor(max_workers=5) as executor:
         # Submit tasks to the executor

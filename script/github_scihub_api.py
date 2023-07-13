@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='Script to process keywords.')
 parser.add_argument('-f', '--file', nargs='+', help='file', default='output_files/output.csv')
-parser.add_argument('-d', '--directory', nargs='+', help='directory', default='papers')
+parser.add_argument('-d', '--directory', nargs='+', help='directory', default=['papers'])
 
 args = parser.parse_args()
 file = args.file[0]
