@@ -1,0 +1,41 @@
+import csv
+
+###Requires Installation of the geopy Module!!!!!
+
+###Setting Up Geolocater
+from geopy.geocoders import Nominatim
+geolocator = Nominatim(user_agent="MyApp")
+#location = geolocator.geocode("North Carolina")
+
+###Read the Data
+path = "Study_Sites_Cleaned.csv"
+dictList = []
+with open(path, newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    fieldnames = reader.fieldnames
+    print("Fieldnames", fieldnames)
+    if ("State" not in fieldnames) and ('state' not in fieldnames):
+        print("No state field found in your data")
+        quit()
+
+    ###Update all the data with the new fields
+    fieldnames += ['Latitude', 'Longitude']
+    for row in reader:  
+        state = row['State']
+        location = geolocator.geocode(state)
+        row['Latitude'] = location.latitude
+        row['Longitude'] = location.longitude
+        dictList.append(row)  
+print(dictList)
+
+###Write the Data to a new spreadsheet
+outpath = "Study_Sites_LatLong.csv"
+with open(outpath, 'w', newline='') as csvfile:
+    headers = fieldnames
+    writer = csv.DictWriter(csvfile, fieldnames= headers)
+    writer.writeheader()
+    writer.writerows(dictList)
+
+
+    
+
