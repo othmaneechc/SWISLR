@@ -1,0 +1,7 @@
+country_list
+nltk
+scidownl
+pandas
+pdfminer
+tqdm
+nltk
