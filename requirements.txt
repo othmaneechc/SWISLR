@@ -5,3 +5,4 @@ pandas
 pdfminer
 tqdm
 nltk
+numpy
