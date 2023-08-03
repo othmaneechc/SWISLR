@@ -36,6 +36,8 @@ The output data from Scopus is saved in the file `output_files/output.csv`. Reme
 
 This repository includes two scripts that use different Sci-Hub APIs: `github_scihub_api.py` and `scihub_api.py`. These scripts process keywords, read a CSV file, and download papers based on the provided input. They also define a function called download_papers() to facilitate paper downloads.
 
+`scihub_api.py` tends not to work due to the lack of working proxies. That is, if you have access to working proxies, then you can edit the code and run it.
+
 ### Documentation for Command-line Arguments:
 
 The `file` argument allows you to specify the path(s) to the CSV file(s) to be processed. You can provide one or more file paths as input. If no file path is provided, the script assumes the file path as `output_files/output.csv`. The CSV file should have a "DOI" column.
@@ -51,29 +53,17 @@ Example:
 
 `python scihub_api.py -f input_files/data.csv -d download_directory`
 
-## PDF Cleaning
+## PDF Location Analysis
 
-After saving PDF files from Sci-Hub, this script processes a folder containing the PDF files, retrieves information from each file, and deletes corrupted files. It utilizes the `argparse` module for command-line argument parsing and the `os` module for file and directory handling.
-
-### Documentation for Command-line Arguments:
-
-The `folder` argument allows you to specify the path to the folder containing the PDF files to be processed. Provide a single folder path as input. If no folder path is provided, the script assumes the folder path as "combined_data".
-
-Example: 
-
-`python cleaner.py -f pdf_folder`
-
-## PDF Analysing
-
-This script processes a folder containing PDF files and tries to find the most common location words. It outputs all the data in a CSV file called `primary_pdf_analysis.py.`
+This script processes a folder containing PDF files and tries to find the most common location words. It outputs all the data in a CSV file called `pdf_location_analysis.py.`
 
 ### Documentation for Command-line Arguments:
 
-The `folder` argument allows you to specify the path to the folder containing the PDF files. Provide a single folder path as input. If no folder path is provided, the script assumes the folder path as "combined_data".
+The `folder` argument allows you to specify the path to the folder containing the PDF files. Provide a single folder path as input.
 
 Example: 
 
-`python pdf_analyser.py -f pdf_folder`
+`python pdf_location_analysis.py -p pdf_folder`
 
 ## Geolocation
 
