@@ -83,7 +83,7 @@ Example:
 
 `python AddressToLatLong.py sheets.csv`
 
-`Enter Name for New Generated File` sheetsLongLat
+`Enter Name for New Generated File: sheetsLongLat`
 
 
 
