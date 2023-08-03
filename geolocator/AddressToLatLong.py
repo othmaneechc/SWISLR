@@ -1,20 +1,33 @@
 import csv
+import sys
 
 ###Setting Up Geolocater
 from geopy.geocoders import Nominatim
 geolocator = Nominatim(user_agent="MyApp")
 #location = geolocator.geocode("North Carolina")
 
+argnum = len(sys.argv)
+if argnum < 2:
+    print("\nPlease provide a CSV name in the command line\n'python AddressToLatLong.py locations.csv'\n")
+    exit()
+
+FileExtensionCheck = sys.argv[1][-4:]
+if FileExtensionCheck != ".csv":
+    print("\nThe file you have provided is not a CSV\n")
+    exit()
+
+newname = input('Enter Name for New Generated File: ')
+
 ###Read the Data
-path = "10_New_Sites"
+path = sys.argv[1]
 dictList = []
 print("\nDo not include redundant location information, it will lower the accuracy of Nominatim\n")
-with open(path + ".csv", newline='') as csvfile:
+with open(path + "", newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     fieldnames = reader.fieldnames
 
     ###Lowercasing all the fields and finding which fields are present
-    addressFields = ["location", "addresss", "city", "county", "state", "country"]
+    addressFields = ["location", "address", "city", "county", "state", "country"]
     detectedFields = []
     for i in range(len(fieldnames)):
         fieldnames[i] = fieldnames[i].lower()
@@ -39,8 +52,8 @@ with open(path + ".csv", newline='') as csvfile:
         for field in detectedFields:
             if row[field] != "":
                 searchQuery.append(row[field])
-        print("Search Terms", searchQuery)
-        print("\nSearching Nominatim for", " ".join(searchQuery))
+        print("\nSearch Terms", searchQuery)
+        print("Searching Nominatim for", " ".join(searchQuery))
         location = geolocator.geocode(" ".join(searchQuery))
 
         ###if no results, try first location only
@@ -65,7 +78,7 @@ with open(path + ".csv", newline='') as csvfile:
 #print(dictList)
 
 ###Write the Data to a new spreadsheet
-with open(path + "_LatLong.csv", 'w', newline='') as csvfile:
+with open(newname + ".csv", 'w', newline='') as csvfile:
     headers = fieldnames
     writer = csv.DictWriter(csvfile, fieldnames= headers)
     writer.writeheader()
