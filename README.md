@@ -75,9 +75,15 @@ Example:
 
 `python pdf_analyser.py -f pdf_folder`
 
+## Geolocation
 
+This script takes a csv and tries to find location fields ("location", "address", "city", "county", "state", "country") and tries to find Longitude/Latitude information to add them as additional fields. It searches Nominatum using these fields in the query and Nominatum then returns Longitude/Latitude information to the best it can. Prolonged use can result in errors occurring (likely due to IP blocking), so using this script several times may be necessary. Once started, the script will prompt the user to provide a name for the output file.
 
+Example:
 
+`python AddressToLatLong.py sheets.csv`
+
+`Enter Name for New Generated File` sheetsLongLat
 
 
 
