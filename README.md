@@ -1,10 +1,20 @@
 # SWISLR
 
-This repository contains all of the code used by team 25 for Duke University Data plus 2023: Assessing Climate Change Risk of Rural Coastal Plain Communities
+This repository contains all of the code used by team 25 for Duke University Data plus 2023: Assessing Climate Change Risk of Rural Coastal Plain Communities. 
+
+Our goal was to create a dataset containing all the research happening in the US related to SWISLR that was then mapped using ArcGIS. We found many ways to gather the data and unfortunately, we realized (a bit late) that it is usually easier to download the data we need manually from journal databases (Web of Science, Scopus...) than use their APIs. 
+
+Here are a few ways to collect data, and things you need to know before using this code. 
+
+- Downloading PDF files, PDF mining, then extracting data with SpaCy/ChatGPT.
+- Analysing Abstracts (Very easy to download as CSV from most journal databases) and extracting data with SpaCy/ChatGPT.
+- The Scopus API can be useful if you want to get data for a large number of keyword combinations.
+- The code might need a few edits depending on your computer's local environment.
+- Here is the link to the map: https://dukeuniv.maps.arcgis.com/apps/mapviewer/index.html?webmap=46722778e4cb468bb9d2431784d8d204
 
 ## Pre-Requirements
 
-All the code is within the "script" folder. To install the necessary dependencies, navigate to the script directory and run the following command: 
+To install the necessary dependencies, run the following command: 
 
 `pip install -r requirements.txt`
 
@@ -65,9 +75,9 @@ Example:
 
 `python pdf_location_analysis.py -p pdf_folder`
 
-## Geolocation
+## Geolocation (Longitude & Latitude)
 
-This script takes a csv and tries to find location fields ("location", "address", "city", "county", "state", "country") and tries to find Longitude/Latitude information to add them as additional fields. It searches Nominatum using these fields in the query and Nominatum then returns Longitude/Latitude information to the best it can. Prolonged use can result in errors occurring (likely due to IP blocking), so using this script several times may be necessary. Once started, the script will prompt the user to provide a name for the output file.
+This script takes a CSV and tries to find location fields ("location", "address", "city", "county", "state", "country") and tries to find Longitude/Latitude information to add them as additional fields. It searches Nominatum using these fields in the query and Nominatum then returns Longitude/Latitude information to the best it can. Prolonged use can result in errors occurring (likely due to IP blocking), so using this script several times may be necessary. Once started, the script will prompt the user to provide a name for the output file.
 
 Example:
 
